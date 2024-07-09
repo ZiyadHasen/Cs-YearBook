@@ -1,0 +1,15 @@
+.em {
+  text-align: center;
+  padding: 12px;
+}
+
+@media (max-width: 550px) {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+  h2 {
+    font-size: 16px;
+    border-bottom: 1px solid #00000000;
+  }
+}

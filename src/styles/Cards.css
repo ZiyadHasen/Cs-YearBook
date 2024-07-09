@@ -1,0 +1,254 @@
+.responsive-container-block {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  min-height: 300px;
+  background-color: white;
+  padding: 20px;
+  border: 2px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.name-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 900;
+  color: rgb(51, 51, 51);
+  margin: 0;
+}
+
+.position {
+  font-size: 18px;
+  color: rgb(51, 51, 51);
+  margin: 0;
+}
+
+.lastword {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+#longText {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  padding: 20px;
+  background-color: rgb(235, 182, 83);
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* background-color: rgb(83, 184, 227); */
+}
+
+.photo {
+  margin-left: auto;
+}
+
+.photo img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+.quote-svg {
+  width: 35px;
+  height: auto;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  width: 70%;
+  height: 70%;
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.close-button {
+  position: absolute;
+  float: left;
+  top: 70px;
+  right: 90px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.profile-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 40%;
+  height: 100%;
+  padding: 20px;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.profile-description img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.popup-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  width: 90%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.popup-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+/* Media Query for screens 550px and below */
+@media (max-width: 550px) {
+  .responsive-container-block {
+    margin: 0 auto;
+  }
+  .card {
+    width: 100%;
+    min-height: 150px;
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .name-container {
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .photo {
+    margin: 0;
+  }
+  .popup-overlay {
+    height: 100vh;
+    align-items: flex-start;
+  }
+
+  .popup-content {
+    flex-direction: column;
+
+    width: 100%;
+  }
+  .profile-description {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    align-items: center;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  #longText {
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+  .popup-images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .popup-images img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 6px;
+    object-fit: cover;
+    opacity: 0;
+    animation: slide 10s infinite;
+  }
+
+  .popup-images img:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .popup-images img:nth-child(2) {
+    animation-delay: 5s;
+  }
+
+  .popup-images img:nth-child(3) {
+    animation-delay: 10s;
+  }
+
+  /* Add more nth-child selectors if you have more images */
+
+  @keyframes slide {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .close-button {
+    top: 10px;
+    right: 10px;
+    z-index: 10000;
+  }
+}
